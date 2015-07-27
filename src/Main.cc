@@ -1,11 +1,13 @@
 #include <iostream>
 
 #include "ArgumentsList.hpp"
+#include "SDLWrapper.hpp"
 
-int main(int argc, const char **argv)
+int main(int argc, char *argv[])
 {
     ArgumentsList arguments(argc, argv);
 
-    std::cout << arguments[0] << std::endl;
+    SDL sdl;
+
     return 0;
 }

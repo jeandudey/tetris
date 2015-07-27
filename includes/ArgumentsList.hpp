@@ -6,7 +6,7 @@
 
 class ArgumentsList {
  public:
-  ArgumentsList(int argc, const char **argv)
+  ArgumentsList(int argc, char *argv[])
     : arguments_(argc)
   {
     for (int i = 0; i < argc; i++)
