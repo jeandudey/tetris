@@ -1,2 +1,5 @@
 # CMake
 build/
+
+# Vim
+*.swp
