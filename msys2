@@ -1,0 +1,18 @@
+#!/usr/bin/bash
+# TODO: Convert this to a Makefile.
+if [ ! -d "$DIRECTORY" ]; then
+    mkdir build && cd build
+
+    echo "Generating MSYS Makefiles..."
+    cmake ../ -G "MSYS Makefiles"
+else
+    cd build
+    echo "Generating MSYS Makefiles..."
+    cmake ../ -G "MSYS Makefiles"
+fi
+
+echo "Building..."
+make
+
+echo "Running test suite..."
+make test

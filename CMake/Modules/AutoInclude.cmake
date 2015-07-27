@@ -1,0 +1,2 @@
+include(RequireOutOfSourceBuild)
+include(TetrisAddSources)
