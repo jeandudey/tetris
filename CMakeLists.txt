@@ -27,6 +27,25 @@ if(SDL2_FOUND)
   )
 endif()
 
+find_package(
+  Boost
+  REQUIRED
+  COMPONENTS
+    exception
+)
+
+if(Boost_FOUND)
+  list(
+    APPEND
+      TETRIS_LIBRARIES ${Boost_LIBRARIES}
+  )
+
+  list(
+    APPEND
+      TETRIS_INCLUDE_DIRS ${Boost_INCLUDE_DIRS}
+  )
+endif()
+
 include_directories(
   "includes"
   ${TETRIS_INCLUDE_DIRS}
