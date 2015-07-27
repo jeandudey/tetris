@@ -7,7 +7,10 @@ int main(int argc, char *argv[])
 {
     ArgumentsList arguments(argc, argv);
 
-    SDL sdl;
-
+    try {
+        SDL sdl;
+    } catch (boost::exception &e) {
+        std::cerr << boost::diagnostic_information(e) << std::endl;
+    }
     return 0;
 }
