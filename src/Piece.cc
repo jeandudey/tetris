@@ -32,6 +32,7 @@ Piece::Piece(Type type)
             break;
 
         case Type::T:
+            create_t();
             break;
     }
 }
