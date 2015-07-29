@@ -2,6 +2,7 @@ tetris_add_sources(
   Main.cc
   SDLWrapper.cc
   Pieces.cc
+  Piece.cc
   Board.cc
   Game.cc
 )
