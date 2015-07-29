@@ -1,5 +1,7 @@
 #include "SDLWrapper.hpp"
 
+// SDL
+
 SDL::SDL(Uint32 flags)
 {
     if (SDL_Init(flags) != 0)
@@ -10,6 +12,8 @@ SDL::~SDL()
 {
     SDL_Quit();
 }
+
+// Window
 
 SDLWindow::SDLWindow(const std::string &title, int x, int y, int w, int h, Uint32 flags)
     : window_(SDL_CreateWindow(title.c_str(), x, y, w, h, flags))
@@ -25,7 +29,9 @@ void SDLWindow::close()
     SDL_DestroyWindow(window_);
 }
 
-SDLRenderer::SDLRenderer(SDLWindow window, Uint32 flags)
+// Renderer
+
+SDLRenderer::SDLRenderer(SDLWindow &window, Uint32 flags)
     : renderer_(SDL_CreateRenderer(window.get(), -1, flags))
 {
     if (renderer_ == NULL)
