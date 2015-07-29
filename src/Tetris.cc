@@ -17,6 +17,15 @@ Tetris::~Tetris()
 
 void Tetris::handle_events()
 {
+    SDL_Event e;
+
+    while (SDL_PollEvent(&e)) {
+	    switch (e.type) {
+            case SDL_QUIT:
+		        running_ = false;
+                break;
+	    }
+    }
 }
 
 void Tetris::update()
