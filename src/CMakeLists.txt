@@ -5,4 +5,6 @@ tetris_add_sources(
   Piece.cc
   Board.cc
   Game.cc
+  Tetris.cc
+  Loop.cc
 )

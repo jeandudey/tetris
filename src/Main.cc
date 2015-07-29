@@ -2,29 +2,24 @@
 
 #include "ArgumentsList.hpp"
 #include "SDLWrapper.hpp"
-#include "Piece.hpp"
+#include "Tetris.hpp"
+#include "Loop.hpp"
 
 int main(int argc, char *argv[])
 {
     ArgumentsList arguments(argc, argv);
 
     try {
-        SDL sdl;
+        SDL sdl(SDL_INIT_EVERYTHING);
         SDLWindow window("Tetris",
                         SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
                         640, 480);
 
-        SDLRenderer renderer(window);
+        Tetris game(window);
+        Loop loop(&game);
 
-        renderer.set_draw_color(255, 0, 0, 255);
-        renderer.clear();
+        loop.run();
 
-        renderer.set_draw_color(0, 255, 0, 255);
-        Piece piece(Piece::Type::Square);
-
-        piece.draw(renderer, 1);
-
-        renderer.destroy();
         window.close();
     } catch (boost::exception &e) {
         std::cerr << "-- Diagnostic information:" << std::endl;
