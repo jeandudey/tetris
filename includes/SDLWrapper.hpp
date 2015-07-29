@@ -13,6 +13,11 @@ class SDL : private boost::noncopyable {
  public:
   SDL(Uint32 flags = SDL_INIT_EVERYTHING);
   ~SDL();
+
+  bool initialized() const { return initialized_; };
+
+ private:
+  bool initialized_;
 };
 
 class SDLWindow : private boost::noncopyable {
@@ -23,8 +28,11 @@ class SDLWindow : private boost::noncopyable {
 
   void close();
 
+  bool created() const { return created_; }
+
  private:
   SDL_Window *window_;
+  bool created_;
 };
 
 class SDLRenderer : private boost::noncopyable {
@@ -37,8 +45,11 @@ class SDLRenderer : private boost::noncopyable {
   void draw_rectangle(const SDL_Rect *rect);
   void clear();
 
+  bool created() const { return created_; }
+
   void destroy();
 
  private:
   SDL_Renderer *renderer_;
+  bool created_;
 };

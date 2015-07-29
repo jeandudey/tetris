@@ -3,23 +3,27 @@
 // SDL
 
 SDL::SDL(Uint32 flags)
+    : initialized_(false)
 {
     if (SDL_Init(flags) != 0)
         BOOST_THROW_EXCEPTION(sdl_error() << sdl_geterror(SDL_GetError()));
+
+    initialized_ = true;
 }
 
-SDL::~SDL()
-{
-    SDL_Quit();
-}
+SDL::~SDL() { SDL_Quit(); }
 
 // Window
 
 SDLWindow::SDLWindow(const std::string &title, int x, int y, int w, int h, Uint32 flags)
-    : window_(SDL_CreateWindow(title.c_str(), x, y, w, h, flags))
+    : window_(SDL_CreateWindow(title.c_str(), x, y, w, h, flags)),
+      created_(false)
+
 {
     if (window_ == NULL)
         BOOST_THROW_EXCEPTION(sdl_error() << sdl_geterror(SDL_GetError()));
+    else
+        created_ = true;
 }
 
 SDL_Window *SDLWindow::get() { return window_; }
@@ -32,10 +36,14 @@ void SDLWindow::close()
 // Renderer
 
 SDLRenderer::SDLRenderer(SDLWindow &window, Uint32 flags)
-    : renderer_(SDL_CreateRenderer(window.get(), -1, flags))
+    : renderer_(SDL_CreateRenderer(window.get(), -1, flags)),
+      created_(false)
+
 {
     if (renderer_ == NULL)
         BOOST_THROW_EXCEPTION(sdl_error() << sdl_geterror(SDL_GetError()));
+    else
+        created_ = true;
 }
 
 SDL_Renderer *SDLRenderer::get() { return renderer_; }

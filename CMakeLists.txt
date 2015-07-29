@@ -8,6 +8,8 @@ list(
 
 include(AutoInclude)
 
+option(BUILD_TESTS "Build unit tests [for development]" OFF)
+
 add_subdirectory("src")
 
 set(TETRIS_LIBRARIES "")
@@ -49,7 +51,7 @@ endif()
 
 enable_cxx11()
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Weffc++")
+set(tetris_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Weffc++")
 
 include_directories(
   "includes"
@@ -66,5 +68,14 @@ target_link_libraries(
   ${TETRIS_LIBRARIES}
 )
 
-enable_testing()
-add_subdirectory("tests")
+if(BUILD_TESTS)
+  add_subdirectory("extlibs/gtest-1.7.0")
+
+  include_directories(
+    "${gtest_SOURCE_DIR}/include"
+    "${gtest_SOURCE_DIR}"
+  )
+
+  enable_testing()
+  add_subdirectory("tests")
+endif()
