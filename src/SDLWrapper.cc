@@ -70,3 +70,22 @@ void SDLRenderer::destroy()
 {
     SDL_DestroyRenderer(renderer_);
 }
+
+SDLGL::SDLGL(SDLWindow &window)
+    : context_(SDL_GL_CreateContext(window.get())),
+      created_(false)
+
+{
+    if (context_ == NULL)
+        BOOST_THROW_EXCEPTION(sdl_error() << sdl_geterror(SDL_GetError()));
+    else
+        created_ = true;
+}
+
+SDL_GLContext SDLGL::get() { return context_; }
+
+void SDLGL::set_attribute(SDL_GLattr attr, int value)
+{
+    if (SDL_GL_SetAttribute(attr, value) != 0)
+        BOOST_THROW_EXCEPTION(sdl_error() << sdl_geterror(SDL_GetError()));
+}

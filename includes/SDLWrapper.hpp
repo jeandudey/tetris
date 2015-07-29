@@ -53,3 +53,18 @@ class SDLRenderer : private boost::noncopyable {
   SDL_Renderer *renderer_;
   bool created_;
 };
+
+class SDLGL : private boost::noncopyable {
+ public:
+  SDLGL(SDLWindow &window);
+
+  SDL_GLContext get();
+
+  static void set_attribute(SDL_GLattr attr, int value);
+
+  bool created() const { return created_; }
+
+ private:
+  SDL_GLContext context_;
+  bool created_;
+};

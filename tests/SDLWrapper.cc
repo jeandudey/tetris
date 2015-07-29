@@ -23,10 +23,20 @@ TEST(SDLRendererClass, Constructor)
     SDLRenderer renderer(window);
 
     ASSERT_EQ(renderer.created(), true);
+    window.close();
+}
+
+TEST(SDLGLClass, Constructor)
+{
+    SDLWindow window("test", 0, 0, 1, 1, SDL_WINDOW_OPENGL);
+    SDLGL context(window);
+
+    ASSERT_EQ(context.created(), true);
+    window.close();
 }
 
 int main(int argc, char **argv)
 {
-  ::testing::InitGoogleTest(&argc, argv);
-  return RUN_ALL_TESTS();
+    ::testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
 }
