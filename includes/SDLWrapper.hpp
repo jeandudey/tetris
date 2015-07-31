@@ -1,6 +1,7 @@
 #pragma once
 
 #include <SDL.h>
+#include <SDL_opengl.h>
 #include <string>
 
 #include <boost/exception/all.hpp>
@@ -26,8 +27,9 @@ class SDLWindow : private boost::noncopyable {
 
   SDL_Window *get();
 
-  void close();
+  void swap();
 
+  void close();
   bool created() const { return created_; }
 
  private:
@@ -61,6 +63,7 @@ class SDLGL : private boost::noncopyable {
   SDL_GLContext get();
 
   static void set_attribute(SDL_GLattr attr, int value);
+  bool swap_interval(int interval);
 
   bool created() const { return created_; }
 
