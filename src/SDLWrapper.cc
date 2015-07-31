@@ -28,6 +28,11 @@ SDLWindow::SDLWindow(const std::string &title, int x, int y, int w, int h, Uint3
 
 SDL_Window *SDLWindow::get() { return window_; }
 
+void SDLWindow::swap()
+{
+    SDL_GL_SwapWindow(window_);
+}
+
 void SDLWindow::close()
 {
     SDL_DestroyWindow(window_);
@@ -88,4 +93,9 @@ void SDLGL::set_attribute(SDL_GLattr attr, int value)
 {
     if (SDL_GL_SetAttribute(attr, value) != 0)
         BOOST_THROW_EXCEPTION(sdl_error() << sdl_geterror(SDL_GetError()));
+}
+
+bool SDLGL::swap_interval(int interval)
+{
+    return SDL_GL_SetSwapInterval(interval) != 0;
 }
