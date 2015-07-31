@@ -49,6 +49,4 @@ void Tetris::draw()
         glVertex2f(0.5f, 0.5f);
         glVertex2f(-0.5f, 0.5f);
     glEnd();
-
-    window_.swap();
 }

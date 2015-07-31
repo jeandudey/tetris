@@ -19,8 +19,7 @@ int main(int argc, char *argv[])
                          SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
                          640, 480, SDL_WINDOW_OPENGL);
 
-        Tetris game(window);
-        Loop loop(&game);
+        Loop loop(window);
         loop.run();
 
         window.close();
