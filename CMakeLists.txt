@@ -49,6 +49,13 @@ if(Boost_FOUND)
   )
 endif()
 
+if(MSYS OR MINGW)
+  list(
+    APPEND
+      TETRIS_LIBRARIES "opengl32"
+  )
+endif()
+
 enable_cxx11()
 
 set(tetris_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Weffc++")
