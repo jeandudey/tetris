@@ -14,6 +14,7 @@ class Tetris : private boost::noncopyable {
   bool running() const { return running_; };
 
  private:
-  SDLRenderer renderer_;
+  SDLGL context_;
+  SDLWindow &window_;
   bool running_;
 };
