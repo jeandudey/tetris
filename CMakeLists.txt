@@ -49,12 +49,30 @@ if(Boost_FOUND)
   )
 endif()
 
+find_package(
+  GLEW
+  REQUIRED
+)
+
+if(GLEW_FOUND)
+  list(
+    APPEND
+      TETRIS_LIBRARIES ${GLEW_LIBRARIES}
+  )
+
+  list(
+    APPEND
+      TETRIS_INCLUDE_DIRS ${GLEW_INCLUDE_DIRS}
+  )
+endif()
+
 if(MSYS OR MINGW)
   list(
     APPEND
       TETRIS_LIBRARIES "opengl32"
   )
 endif()
+
 
 enable_cxx11()
 

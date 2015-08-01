@@ -3,6 +3,7 @@
 Tetris::Tetris(SDLWindow &window)
     : context_(window),
       window_(window),
+      glew_(),
       running_(false)
 {
     context_.swap_interval(1);

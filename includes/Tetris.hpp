@@ -1,6 +1,7 @@
 #pragma once
 
 #include "SDLWrapper.hpp"
+#include "GLEWWrapper.hpp"
 
 class Tetris : private boost::noncopyable {
  public:
@@ -16,5 +17,6 @@ class Tetris : private boost::noncopyable {
  private:
   SDLGL context_;
   SDLWindow &window_;
+  GLEW glew_;
   bool running_;
 };
