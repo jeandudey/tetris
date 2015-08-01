@@ -7,4 +7,5 @@ tetris_add_sources(
   Game.cc
   Tetris.cc
   Loop.cc
+  Rectangle2d.cc
 )
