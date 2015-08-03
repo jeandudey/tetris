@@ -10,8 +10,7 @@ Tetris::Tetris(SDLWindow &window)
     : context_(window),
       window_(window),
       glew_(),
-      quad_(Rectangle2d::Position(),
-            Rectangle2d::Size(50, 50)),
+      playfield_(),
       running_(false)
 {
     context_.swap_interval(1);
@@ -60,5 +59,5 @@ void Tetris::draw()
 {
     glClear(GL_COLOR_BUFFER_BIT);
 
-    quad_.draw();
+    playfield_.draw();
 }

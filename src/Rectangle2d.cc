@@ -1,4 +1,4 @@
-#include "Tetris.hpp"
+#include "Rectangle2d.hpp"
 
 Rectangle2d::Rectangle2d(const Position &pos, const Size &sz)
     : position(pos),

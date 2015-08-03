@@ -4,4 +4,5 @@ tetris_add_sources(
   Tetris.cc
   Loop.cc
   Rectangle2d.cc
+  Playfield.cc
 )

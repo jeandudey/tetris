@@ -2,7 +2,7 @@
 
 #include "SDLWrapper.hpp"
 #include "GLEWWrapper.hpp"
-#include "Rectangle2d.hpp"
+#include "Playfield.hpp"
 
 class Tetris : private boost::noncopyable {
  public:
@@ -19,6 +19,6 @@ class Tetris : private boost::noncopyable {
   SDLGL context_;
   SDLWindow &window_;
   GLEW glew_;
-  Rectangle2d quad_;
+  Playfield playfield_;
   bool running_;
 };
