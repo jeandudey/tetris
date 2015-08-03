@@ -23,8 +23,6 @@ Tetris::Tetris(SDLWindow &window)
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
 
-    //glOrtho(0.f, wsize.x, 0.f, wsize.y, 0.f, 1.f);
-
     glm::mat4 ortho = glm::ortho(0.f, wsize.x, wsize.y, 0.f);
 
     glMultMatrixf(glm::value_ptr(ortho));
