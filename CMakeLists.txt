@@ -66,6 +66,18 @@ if(GLEW_FOUND)
   )
 endif()
 
+find_package(
+  GLM
+  REQUIRED
+)
+
+if(GLM_FOUND)
+  list(
+    APPEND
+      TETRIS_INCLUDE_DIRS ${GLM_INCLUDE_DIRS}
+  )
+endif()
+
 if(MSYS OR MINGW)
   list(
     APPEND
