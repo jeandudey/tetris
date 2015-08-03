@@ -38,6 +38,30 @@ void SDLWindow::close()
     SDL_DestroyWindow(window_);
 }
 
+int SDLWindow::width() const
+{
+    int w;
+
+    if (created_)
+        SDL_GetWindowSize(window_, &w, NULL);
+    else
+        BOOST_THROW_EXCEPTION(sdl_error() << sdl_geterror("The window is not created!"));
+
+    return w;
+}
+
+int SDLWindow::height() const
+{
+    int h;
+
+    if (created_)
+        SDL_GetWindowSize(window_, NULL, &h);
+    else
+        BOOST_THROW_EXCEPTION(sdl_error() << sdl_geterror("The window is not created!"));
+
+    return h;
+}
+
 // Renderer
 
 SDLRenderer::SDLRenderer(SDLWindow &window, Uint32 flags)

@@ -29,6 +29,9 @@ class SDLWindow : private boost::noncopyable {
   void swap();
 
   void close();
+  int width() const;
+  int height() const;
+
   bool created() const { return created_; }
 
  private:
