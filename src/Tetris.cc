@@ -58,6 +58,10 @@ void Tetris::handle_events()
                     case SDLK_RIGHT:
                         current_tetromino_->move(Tetromino::MovementType::Right);
                         break;
+
+                    case SDLK_UP:
+                        current_tetromino_->rotate();
+                        break;
                 }
                 break;
         }

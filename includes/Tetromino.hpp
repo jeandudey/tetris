@@ -43,6 +43,12 @@ class Tetromino {
         playfield_position_.x += 1;
   }
 
+  // I will not offend your intelligence
+  void rotate()
+  {
+    current_rotation_ = (current_rotation_ + 1) % 4;
+  }
+
   void draw()
   {
     for (int y = 0; y < 5; y++) {
