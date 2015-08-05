@@ -11,8 +11,8 @@ class Tetromino {
   typedef std::vector<std::vector<std::vector<int> > > RotationType;
   typedef glm::vec2 Position;
 
-  enum Type {
-      I,
+  enum class Type {
+      I = 0,
       J,
       L,
       O,
@@ -21,12 +21,26 @@ class Tetromino {
       Z
   };
 
+  enum class MovementType {
+      Left = 0,
+      Right
+  };
+
   explicit Tetromino()
     : current_rotation_(0),
       playfield_position_(),
       rotations_(4, std::vector<std::vector<int> >(5, std::vector<int>(5, 0))),
       color_(0.f, 0.f, 0.f)
   {
+  }
+
+  // Move tetromino on the x axis.
+  void move(MovementType type)
+  {
+    if (type == MovementType::Left)
+        playfield_position_.x -= 1;
+    else
+        playfield_position_.x += 1;
   }
 
   void draw()
