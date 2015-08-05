@@ -12,11 +12,12 @@ class Tetromino {
   typedef glm::vec2 Position;
 
   enum Type {
+      I,
       O
   };
 
-  explicit Tetromino(int rotation)
-    : current_rotation_(rotation),
+  explicit Tetromino()
+    : current_rotation_(0),
       playfield_position_(),
       rotations_(4),
       color_(0.f, 0.f, 0.f)

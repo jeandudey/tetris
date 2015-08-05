@@ -4,8 +4,7 @@
 
 class OTetromino : public Tetromino {
  public:
-  OTetromino(int rotation)
-    : Tetromino(rotation)
+  OTetromino()
   {
     rotations_ = {
         {
