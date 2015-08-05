@@ -41,6 +41,6 @@ class JTetromino : public Tetromino {
 
     playfield_position_ = glm::vec2(2, -1);
 
-    color_ = Color<float>(0.f, .8f, 1.f);
+    color_ = Color<float>(0.f, 0.f, 1.f);
   }
 };
