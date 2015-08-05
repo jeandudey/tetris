@@ -13,31 +13,30 @@ class Tetromino {
 
   enum Type {
       I,
+      J,
       O
   };
 
   explicit Tetromino()
     : current_rotation_(0),
       playfield_position_(),
-      rotations_(4),
+      rotations_(4, std::vector<std::vector<int> >(5, std::vector<int>(5, 0))),
       color_(0.f, 0.f, 0.f)
   {
   }
 
   void draw()
   {
-    glm::vec2 position(playfield_position_.x * 32, playfield_position_.y * 32);
-
-    for (int x = 0; x < 5; x++)
-    {
-        for (int y = 0; y < 5; y++)
-        {
-            if (rotations_[current_rotation_][x][y] != 0)
-            {
+    for (int y = 0; y < 5; y++) {
+        for (int x = 0; x < 5; x++) {
+            if (rotations_[current_rotation_][y][x] != 0) {
                 Rectangle2d quad(Rectangle2d::Position((playfield_position_.x + x) * 32, (playfield_position_.y + y) * 32),
                                  Rectangle2d::Size(32, 32));
 
-                quad.color(color_.r, color_.b, color_.g);
+                if (rotations_[current_rotation_][y][x] == 2)
+                    quad.color(1.f, 1.f, 1.f);
+                else
+                    quad.color(color_.r, color_.b, color_.g);
 
                 quad.draw();
             }
