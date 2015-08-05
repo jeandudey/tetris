@@ -4,8 +4,8 @@
 
 class OTetromino : public Tetromino {
  public:
-  OTetromino(int rotation, int initial_position)
-    : Tetromino(rotation, initial_position)
+  OTetromino(int rotation)
+    : Tetromino(rotation)
   {
     rotations_ = {
         {
@@ -38,12 +38,7 @@ class OTetromino : public Tetromino {
         }
     };
 
-    initial_positions_ = {
-        glm::vec2(-2, -3),
-        glm::vec2(-2, -3),
-        glm::vec2(-2, -3),
-        glm::vec2(-2, -3),
-    };
+    playfield_position_ = glm::vec2(2, -2);
 
     color_ = Color<float>(1.f, 0.f, 1.f);
   }

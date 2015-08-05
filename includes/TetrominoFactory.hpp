@@ -6,9 +6,9 @@
 
 class TetrominoFactory {
  public:
-  static boost::shared_ptr<Tetromino> create(const Tetromino::Type type, int rotation, int initial_position)
+  static boost::shared_ptr<Tetromino> create(const Tetromino::Type type, int rotation)
   {
     if (type == Tetromino::Type::O)
-        return boost::shared_ptr<Tetromino>(new OTetromino(rotation, initial_position));
+        return boost::shared_ptr<Tetromino>(new OTetromino(rotation));
   }
 };
