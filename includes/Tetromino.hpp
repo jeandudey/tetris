@@ -49,6 +49,11 @@ class Tetromino {
     current_rotation_ = (current_rotation_ + 1) % 4;
   }
 
+  void advance()
+  {
+    playfield_position_.y += 1;
+  }
+
   void draw()
   {
     for (int y = 0; y < 5; y++) {

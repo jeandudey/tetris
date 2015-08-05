@@ -32,6 +32,8 @@ Tetris::Tetris(SDLWindow &window)
 
     glClearColor(0.f, 0.f, 0.f, 1.f);
 
+    timer_.start();
+
     running_ = true;
 }
 
@@ -70,6 +72,10 @@ void Tetris::handle_events()
 
 void Tetris::update()
 {
+    if (timer_.get_ticks() > 700) {
+        current_tetromino_->advance();
+        timer_.start();
+    }
 }
 
 void Tetris::draw()
