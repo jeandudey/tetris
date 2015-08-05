@@ -17,6 +17,7 @@ class Tetromino {
       L,
       O,
       S,
+      T,
       Z
   };
 
