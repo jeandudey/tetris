@@ -5,4 +5,5 @@ tetris_add_sources(
   Loop.cc
   Rectangle2d.cc
   Playfield.cc
+  Timer.cc
 )
