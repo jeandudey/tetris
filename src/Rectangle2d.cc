@@ -6,11 +6,11 @@ Rectangle2d::Rectangle2d(const Position &position, const Size &size)
 {
 }
 
-void Rectangle2d::color(const float r, const float b, const float g)
+void Rectangle2d::color(const float r, const float g, const float b)
 {
     r_ = r;
-    b_ = b;
     g_ = g;
+    b_ = b;
 }
 
 void Rectangle2d::update(const Position &position, const Size &size)
@@ -21,7 +21,7 @@ void Rectangle2d::update(const Position &position, const Size &size)
 
 void Rectangle2d::draw()
 {
-    glColor3f(r_, b_, g_);
+    glColor3f(r_, g_, b_);
 
     glBegin(GL_QUADS);
 
