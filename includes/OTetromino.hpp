@@ -39,6 +39,6 @@ class OTetromino : public Tetromino {
 
     playfield_position_ = glm::vec2(2, -2);
 
-    color_ = Color<float>(1.f, 0.f, 1.f);
+    color_ = Color<float>(1.f, 1.f, 0.f);
   }
 };

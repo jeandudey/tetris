@@ -39,8 +39,8 @@ class TTetromino : public Tetromino {
 
     current_rotation_ = 3;
 
-    playfield_position_ = glm::vec2(2, -2);
+    playfield_position_ = glm::vec2(2, -1);
 
-    color_ = Color<float>(.3f, .3f, .3f);
+    color_ = Color<float>(1.f, 0.f, 1.f);
   }
 };
