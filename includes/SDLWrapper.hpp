@@ -15,6 +15,7 @@ class SDL : private boost::noncopyable {
   ~SDL();
 
   bool initialized() const { return initialized_; };
+  static Uint32 get_ticks() { return SDL_GetTicks(); };
 
  private:
   bool initialized_;
