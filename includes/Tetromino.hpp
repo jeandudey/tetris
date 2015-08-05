@@ -15,7 +15,8 @@ class Tetromino {
       I,
       J,
       L,
-      O
+      O,
+      S
   };
 
   explicit Tetromino()

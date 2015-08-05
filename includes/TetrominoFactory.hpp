@@ -5,6 +5,7 @@
 #include "ITetromino.hpp"
 #include "JTetromino.hpp"
 #include "LTetromino.hpp"
+#include "STetromino.hpp"
 #include <boost/shared_ptr.hpp>
 
 class TetrominoFactory {
@@ -19,5 +20,7 @@ class TetrominoFactory {
         return boost::shared_ptr<Tetromino>(new LTetromino);
     else if (type == Tetromino::Type::O)
         return boost::shared_ptr<Tetromino>(new OTetromino);
+    else if (type == Tetromino::Type::S)
+        return boost::shared_ptr<Tetromino>(new STetromino);
   }
 };
