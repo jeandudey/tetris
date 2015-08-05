@@ -3,6 +3,7 @@
 #include "SDLWrapper.hpp"
 #include "GLEWWrapper.hpp"
 #include "Playfield.hpp"
+#include "TetrominoFactory.hpp"
 
 class Tetris : private boost::noncopyable {
  public:
@@ -20,5 +21,6 @@ class Tetris : private boost::noncopyable {
   SDLWindow &window_;
   GLEW glew_;
   Playfield playfield_;
+  boost::shared_ptr<Tetromino> current_tetromino_;
   bool running_;
 };

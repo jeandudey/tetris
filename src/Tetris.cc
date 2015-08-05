@@ -4,13 +4,14 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-#include <iostream>
+#include <random>
 
 Tetris::Tetris(SDLWindow &window)
     : context_(window),
       window_(window),
       glew_(),
       playfield_(),
+      current_tetromino_(TetrominoFactory::random_tetromino()),
       running_(false)
 {
     context_.swap_interval(1);
@@ -47,6 +48,18 @@ void Tetris::handle_events()
             case SDL_QUIT:
                 running_ = false;
                 break;
+
+            case SDL_KEYDOWN:
+                switch (e.key.keysym.sym) {
+                    case SDLK_LEFT:
+                        current_tetromino_->move(Tetromino::MovementType::Left);
+                        break;
+
+                    case SDLK_RIGHT:
+                        current_tetromino_->move(Tetromino::MovementType::Right);
+                        break;
+                }
+                break;
         }
     }
 }
@@ -59,5 +72,6 @@ void Tetris::draw()
 {
     glClear(GL_COLOR_BUFFER_BIT);
 
+    current_tetromino_->draw();
     playfield_.draw();
 }
