@@ -42,7 +42,7 @@ void Playfield::draw()
         }
     }
 
-    auto tetromino = TetrominoFactory::create(Tetromino::Type::J);
+    auto tetromino = TetrominoFactory::create(Tetromino::Type::L);
 
     tetromino->draw();
 }
