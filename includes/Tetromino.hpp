@@ -14,6 +14,7 @@ class Tetromino {
   enum Type {
       I,
       J,
+      L,
       O
   };
 
@@ -36,7 +37,7 @@ class Tetromino {
                 if (rotations_[current_rotation_][y][x] == 2)
                     quad.color(1.f, 1.f, 1.f);
                 else
-                    quad.color(color_.r, color_.b, color_.g);
+                    quad.color(color_.r, color_.g, color_.b);
 
                 quad.draw();
             }
