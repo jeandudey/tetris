@@ -2,6 +2,8 @@
 
 #include "Matrix.hpp"
 
+#include <boost/core/noncopyable.hpp>
+
 class Playfield : private boost::noncopyable {
  public:
   Playfield();
