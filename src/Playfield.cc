@@ -33,10 +33,20 @@ void Playfield::draw()
                 Rectangle2d quad(Rectangle2d::Position(32 * x, 32 * y),
                                  Rectangle2d::Size(32, 32));
 
-                quad.color(1.f, 0.f, 0.f);
+                quad.color(.7f, 0.f, 0.f);
 
                 quad.draw();
             }
+        }
+    }
+}
+
+void Playfield::store_tetromino(Tetromino *tetromino)
+{
+    for (int x1 = tetromino->position().x, x2 = 0; x1 < tetromino->position().x + 5; x1++, x2++) {
+        for (int y1 = tetromino->position().y, y2 = 0; y1 < tetromino->position().y + 5; y1++, y2++) {
+            if (tetromino->block_type(tetromino->rotation(), y2, x2) != 0)
+                matrix_(x1, y1) = 1;
         }
     }
 }

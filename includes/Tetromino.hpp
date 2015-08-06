@@ -54,6 +54,16 @@ class Tetromino {
     return rotations_[rotation][y][x];
   }
 
+  glm::vec2 position()
+  {
+    return playfield_position_;
+  }
+
+  int rotation()
+  {
+    return current_rotation_;
+  }
+
   bool is_possible_movement(MovementType type, Matrix<int> &matrix)
   {
     glm::vec2 playfield_position(playfield_position_);

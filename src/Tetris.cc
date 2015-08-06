@@ -86,6 +86,8 @@ void Tetris::update()
             Tetromino::MovementType::Advance,
             playfield_.matrix()))
             current_tetromino_->move(Tetromino::MovementType::Advance);
+        else
+            playfield_.store_tetromino(current_tetromino_.get());
 
         timer_.start();
     }
