@@ -84,10 +84,13 @@ void Tetris::update()
     if (timer_.get_ticks() > 700) {
         if (current_tetromino_->is_possible_movement(
             Tetromino::MovementType::Advance,
-            playfield_.matrix()))
+            playfield_.matrix())) {
             current_tetromino_->move(Tetromino::MovementType::Advance);
-        else
+        } else {
             playfield_.store_tetromino(current_tetromino_.get());
+
+            current_tetromino_ = TetrominoFactory::random_tetromino();
+        }
 
         timer_.start();
     }
