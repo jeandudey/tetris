@@ -37,7 +37,7 @@ class ITetromino : public Tetromino {
         }
     };
 
-    current_rotation_ = 1;
+    current_rotation_ = 0;
 
     playfield_position_ = glm::vec2(2, -2);
 
