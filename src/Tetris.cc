@@ -54,15 +54,24 @@ void Tetris::handle_events()
             case SDL_KEYDOWN:
                 switch (e.key.keysym.sym) {
                     case SDLK_LEFT:
-                        current_tetromino_->move(Tetromino::MovementType::Left);
+                        if (current_tetromino_->is_possible_movement(
+                            Tetromino::MovementType::Left,
+                            playfield_.matrix()))
+                            current_tetromino_->move(Tetromino::MovementType::Left);
                         break;
 
                     case SDLK_RIGHT:
-                        current_tetromino_->move(Tetromino::MovementType::Right);
+                        if (current_tetromino_->is_possible_movement(
+                            Tetromino::MovementType::Right,
+                            playfield_.matrix()))
+                            current_tetromino_->move(Tetromino::MovementType::Right);
                         break;
 
                     case SDLK_UP:
-                        current_tetromino_->rotate();
+                        if (current_tetromino_->is_possible_movement(
+                            Tetromino::MovementType::Rotate,
+                            playfield_.matrix()))
+                            current_tetromino_->move(Tetromino::MovementType::Rotate);
                         break;
                 }
                 break;
@@ -73,7 +82,11 @@ void Tetris::handle_events()
 void Tetris::update()
 {
     if (timer_.get_ticks() > 700) {
-        current_tetromino_->advance();
+        if (current_tetromino_->is_possible_movement(
+            Tetromino::MovementType::Advance,
+            playfield_.matrix()))
+            current_tetromino_->move(Tetromino::MovementType::Advance);
+
         timer_.start();
     }
 }

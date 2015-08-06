@@ -1,8 +1,6 @@
 #include "Playfield.hpp"
 #include "GLEWWrapper.hpp"
 #include "Rectangle2d.hpp"
-#include "TetrominoFactory.hpp"
-
 #include <glm/glm.hpp>
 
 Playfield::Playfield()
