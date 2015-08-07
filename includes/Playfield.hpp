@@ -13,6 +13,7 @@ class Playfield : private boost::noncopyable {
   void draw();
 
   void store_tetromino(Tetromino *tetromino);
+  bool is_gameover();
 
   Matrix<int> &matrix() { return matrix_; };
 

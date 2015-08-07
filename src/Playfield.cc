@@ -63,6 +63,13 @@ void Playfield::store_tetromino(Tetromino *tetromino)
     }
 }
 
+bool Playfield::is_gameover()
+{
+    for (int x = 0; x < matrix_.width(); x++)
+        if (matrix_(x, 0) == 1)
+            return true;
+}
+
 void Playfield::delete_line(int line)
 {
     for (int y = line; y > 0; y--) {
