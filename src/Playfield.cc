@@ -11,6 +11,18 @@ Playfield::Playfield()
 
 void Playfield::update()
 {
+    for (int y = 0; y < matrix_.height(); y++) {
+        int x(0);
+
+        while (x < matrix_.width()) {
+            if (matrix_(x, y) != 1)
+                break;
+            x++;
+        }
+
+        if (x == matrix_.width())
+            delete_line(y);
+    }
 }
 
 void Playfield::draw()
@@ -48,5 +60,13 @@ void Playfield::store_tetromino(Tetromino *tetromino)
             if (tetromino->block_type(tetromino->rotation(), y2, x2) != 0)
                 matrix_(x1, y1) = 1;
         }
+    }
+}
+
+void Playfield::delete_line(int line)
+{
+    for (int y = line; y > 0; y--) {
+        for (int x = 0; x < matrix_.width(); x++)
+            matrix_(x, y) = matrix_(x, y - 1);
     }
 }

@@ -18,4 +18,6 @@ class Playfield : private boost::noncopyable {
 
  private:
   Matrix<int> matrix_;
+
+  void delete_line(int line);
 };

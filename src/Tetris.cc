@@ -89,6 +89,8 @@ void Tetris::update()
         } else {
             playfield_.store_tetromino(current_tetromino_.get());
 
+            playfield_.update();
+
             current_tetromino_ = TetrominoFactory::random_tetromino();
         }
 
