@@ -1,13 +1,12 @@
 #pragma once
 
-#include "Tetromino.hpp"
-#include "OTetromino.hpp"
-#include "ITetromino.hpp"
-#include "JTetromino.hpp"
-#include "LTetromino.hpp"
-#include "STetromino.hpp"
-#include "TTetromino.hpp"
-#include "ZTetromino.hpp"
+#include "O.hpp"
+#include "I.hpp"
+#include "J.hpp"
+#include "L.hpp"
+#include "S.hpp"
+#include "T.hpp"
+#include "Z.hpp"
 #include <boost/shared_ptr.hpp>
 #include <random>
 #include <chrono>

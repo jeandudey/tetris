@@ -3,7 +3,7 @@
 #include "SDLWrapper.hpp"
 #include "GLEWWrapper.hpp"
 #include "Playfield.hpp"
-#include "TetrominoFactory.hpp"
+#include "tetromino/Factory.hpp"
 #include "Timer.hpp"
 
 class Tetris : private boost::noncopyable {

@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Matrix.hpp"
-#include "Tetromino.hpp"
+#include "tetromino/Tetromino.hpp"
 
 #include <boost/core/noncopyable.hpp>
 
